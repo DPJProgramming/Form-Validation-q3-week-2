@@ -15,3 +15,8 @@ function isTextPresent(id, errorMessage) {
         return false;
     }
 }
+function isEmailValid(email) {
+    if (!email.includes("@")) {
+        return false;
+    }
+}

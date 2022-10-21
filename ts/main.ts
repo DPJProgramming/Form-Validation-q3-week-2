@@ -30,3 +30,9 @@ function isTextPresent(id:string, errorMessage:string):boolean {
         return false;
     }
 }
+
+function isEmailValid(email:string){
+    if(!email.includes("@")){
+        return false;
+    }
+}
