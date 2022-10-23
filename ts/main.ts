@@ -6,15 +6,33 @@ window.onload = function(){
 
 function main():void{
 
+    // h2 to dom
+    let msgHeading = document.createElement("h2");
+    msgHeading.innerText ="Registration form";
+    msgHeading.setAttribute("class", "message");
+
+    let h1 = document.querySelector("h1");
+    h1.insertAdjacentElement("afterend", msgHeading);
+                            //insert as sibling element to h1
+
+    //removes heading after 5 seconds
+    setTimeout(function(){
+        msgHeading.remove();
+    },5000)
+
     resetErrorMessages();
     isTextPresent("first-name", "First name is required");
     isTextPresent("last-name", "Last name is required");
 
     //validate date
-    let dobBox =<HTMLInputElement>document.getElementById("dob");
+    checkValidDate();
+}
+
+function checkValidDate() {
+    let dobBox = <HTMLInputElement>document.getElementById("dob");
     let dob = dobBox.value;
-    
-    if(!isValidDate(dob)){
+
+    if (!isValidDate(dob)) {
         let errSpan = dobBox.nextElementSibling;
         errSpan.innerHTML = "format should be mm/dd/yyyy";
     }
